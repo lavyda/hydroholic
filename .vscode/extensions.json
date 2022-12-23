@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "svelte.svelte-vscode",
+    "vunguyentuan.vscode-postcss",
+    "vunguyentuan.vscode-css-variables"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "[svelte]": {
+     "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "svelte.enable-ts-plugin": true,
+  "svelte.ask-to-enable-ts-plugin": false,
+  "svelte.plugin.svelte.note-new-transformation": false,
+  "cssVariables.lookupFiles": [
+    "**/*.css",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.less",
+    "**/*.postcss",
+    "**/*.svelte",
+    "node_modules/open-props/open-props.min.css",
+],
+"editor.formatOnSave": true,
+}
