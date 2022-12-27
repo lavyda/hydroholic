@@ -7,7 +7,7 @@
 	export let blocks: Block[] = [];
 
 	const hours = eachHourOfInterval({ start: startOfToday(), end: endOfToday() });
-	const positions = Array.from(new Set(blocks.map((b) => b.position)));
+	$: positions = Array.from(new Set(blocks.map((b) => b.position)));
 	function formatHour(hour: Date): string {
 		return format(hour, 'HH:mm');
 	}
