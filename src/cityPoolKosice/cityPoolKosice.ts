@@ -42,8 +42,9 @@ async function getPool(searchParams: GetPoolSearchParams, date?: string): Promis
 
 function parsePool(featureId: number, html: string): Block[] {
   const starts = eachMinuteOfInterval({
-    start: set(new Date, { hours: 6, minutes: 0, seconds: 0, milliseconds: 0 }),
-    end: set(new Date, { hours: 22, minutes: 0, seconds: 0, milliseconds: 0 })
+    // start and end is adjusted to GMT+00, originally start is 6 and end is 22
+    start: set(new Date, { hours: 5, minutes: 0, seconds: 0, milliseconds: 0 }),
+    end: set(new Date, { hours: 21, minutes: 0, seconds: 0, milliseconds: 0 })
   }, { step: 30 });
 
   const document = new JSDOM(html).window.document as Document;
