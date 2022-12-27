@@ -1,4 +1,4 @@
-import { addMinutes, eachMinuteOfInterval, formatISO, set } from 'date-fns';
+import { addMinutes, eachMinuteOfInterval, format, formatISO, set } from 'date-fns';
 import { JSDOM } from 'jsdom';
 import { parseTable } from "html-table-parser";
 import { BlockState, type Block } from "../common/services/blocks";
@@ -14,9 +14,27 @@ const BlockStateMap: Record<string, BlockState> = {
 
 const host = 'http://88.212.33.102';
 
-async function getPool(searchParams: Record<string, string>): Promise<string> {
+type GetPoolSearchParams = {
+  PoolID: string,
+}
+
+/**
+ * Get pool information for given date. No date specified means today.
+ * PoolID 1 is 50m pool, PoolID 2 is 25m pool.
+ * @param searchParams
+ * @param date format yyyy-MM-dd-HH-mm-ss, e.g. 2022-12-22-00-00-00
+ * @returns HTML template
+ */
+async function getPool(searchParams: GetPoolSearchParams, date?: string): Promise<string> {
   const params = new URLSearchParams(searchParams);
   const url = `${host}/PoolSolution/DayToSetView.aspx?${params}`;
+  if (date) {
+    const body = new URLSearchParams({
+      __EVENTTARGET: 'ctl00$MainContent$cldDate',
+      ctl00$MainContent$cldDate$dateInput: date,
+    });
+    return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body }).then(r => r.text());
+  }
   return fetch(url).then(r => r.text());
 }
 
@@ -60,7 +78,10 @@ function parsePool(featureId: number, html: string): Block[] {
 
 export async function getBlocks(id: number, date?: string) {
   try {
-    const response = await getPool({ PoolID: id.toString() });
+    const searchParams = { PoolID: id.toString() };
+    const formattedDate = date ? format(new Date(date), 'yyyy-MM-dd-00-00-00') : undefined;
+    console.log(searchParams, formattedDate);
+    const response = await getPool(searchParams, formattedDate);
     return parsePool(id, response);
   } catch (e) {
     console.error(e);
