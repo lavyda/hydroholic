@@ -1,7 +1,9 @@
 import { addMinutes, eachMinuteOfInterval, format, formatISO, set } from 'date-fns';
 import { JSDOM } from 'jsdom';
 import { parseTable } from "html-table-parser";
+import { dev } from '$app/environment';
 import { BlockState, type Block } from "../common/services/blocks";
+import getPoolMock from './getPool.mock';
 
 const BlockStateMap: Record<string, BlockState> = {
   DayView_0_0: BlockState.unknown,
@@ -80,6 +82,10 @@ export async function getBlocks(id: number, date?: string) {
   try {
     const searchParams = { PoolID: id.toString() };
     const formattedDate = date ? format(new Date(date), 'yyyy-MM-dd-00-00-00') : undefined;
+    if (dev) {
+      console.log('getBlocks', searchParams, formattedDate);
+      return parsePool(id, getPoolMock);
+    }
     const response = await getPool(searchParams, formattedDate);
     return parsePool(id, response);
   } catch (e) {
