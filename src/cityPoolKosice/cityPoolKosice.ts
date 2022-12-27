@@ -80,7 +80,6 @@ export async function getBlocks(id: number, date?: string) {
   try {
     const searchParams = { PoolID: id.toString() };
     const formattedDate = date ? format(new Date(date), 'yyyy-MM-dd-00-00-00') : undefined;
-    console.log(searchParams, formattedDate);
     const response = await getPool(searchParams, formattedDate);
     return parsePool(id, response);
   } catch (e) {
