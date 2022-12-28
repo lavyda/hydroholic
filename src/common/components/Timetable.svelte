@@ -30,7 +30,7 @@
 		<div class="body--grid">
 			<Grid columns={positions.length} rows={hours.length} />
 		</div>
-		<div class="body--blocks">
+		<div>
 			<Blocks {blocks} columns={positions.length} rows={hours.length} />
 		</div>
 	</div>
@@ -84,10 +84,5 @@
 		position: absolute;
 		block-size: 100%;
 		inline-size: 100%;
-	}
-
-	.body--blocks {
-		position: relative;
-		z-index: 1;
 	}
 </style>

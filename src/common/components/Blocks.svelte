@@ -27,6 +27,8 @@
 	{#each blocks as block}
 		<div
 			class="blocks--block"
+			class:blocks--block__diagonal={getBlockBgColor(block) !== BlockStateColor.free}
+			class:blocks--block__fill={getBlockBgColor(block) === BlockStateColor.free}
 			style="--block-bg-color: {getBlockBgColor(block)}; --block-grid-column: {getBlockGridColumn(
 				block
 			)}; --block-grid-row: {getBlockGridRow(block)}"
@@ -45,6 +47,20 @@
 	.blocks--block {
 		grid-column: var(--block-grid-column);
 		grid-row: var(--block-grid-row);
+	}
+
+	.blocks--block__fill {
 		background-color: var(--block-bg-color);
+	}
+
+	.blocks--block__diagonal {
+		background-size: 10px 10px;
+		background-image: repeating-linear-gradient(
+			45deg,
+			var(--block-bg-color) 0,
+			var(--block-bg-color) 1px,
+			white 0,
+			white 50%
+		);
 	}
 </style>
