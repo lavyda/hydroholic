@@ -19,7 +19,7 @@ export type Block = {
 
 export const BlockStateColor: Record<BlockState, string> = {
   [BlockState.unknown]: 'transparent',
-  [BlockState.free]: OpenProps.blue5,
+  [BlockState.free]: OpenProps.blue6,
   [BlockState.closed]: OpenProps.gray3,
   [BlockState.occupied1]: OpenProps.red3,
   [BlockState.occupied2]: OpenProps.purple3,
