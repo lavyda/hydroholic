@@ -76,7 +76,21 @@ function parsePool(featureId: number, html: string): Block[] {
       processedCells.push(cell.elementId);
     }
   }
-  return blocks;
+
+  blocks.sort((a, b) => a.position - b.position || Date.parse(a.start) - Date.parse(b.start));
+
+  const uniqueBlocks = [];
+  let current = blocks[0];
+  do {
+    const next = blocks
+      .slice(blocks.indexOf(current) + 1)
+      .find((b) => b.position !== current.position || b.name !== current.name) as Block;
+    const end = blocks[blocks.indexOf(next) - 1]?.end ?? current.end;
+    uniqueBlocks.push({ ...current, end });
+    current = next;
+  }
+  while (current);
+  return uniqueBlocks;
 };
 
 export async function getBlocks(id: number, date?: string) {
