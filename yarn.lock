@@ -1396,7 +1396,7 @@
     "@typescript-eslint/types" "5.45.0"
     eslint-visitor-keys "^3.3.0"
 
-"@vite-pwa/sveltekit@^0.1.0":
+"@vite-pwa/sveltekit@0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@vite-pwa/sveltekit/-/sveltekit-0.1.0.tgz#29fd929554626f55e7431ac6377242dd951f09a3"
   integrity sha512-IHn5iFuYpxhevKFr7W5zwu6sQoKD28TwToJIewCEiToVzQPNEnHsv63Cm+3Q+FwOtPJTuQer9uToJHaCiot3Rg==
@@ -1789,7 +1789,7 @@ data-urls@^3.0.2:
     whatwg-mimetype "^3.0.0"
     whatwg-url "^11.0.0"
 
-date-fns@^2.29.3:
+date-fns@2.29.3:
   version "2.29.3"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
   integrity sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==
@@ -2544,7 +2544,7 @@ html-encoding-sniffer@^3.0.0:
   dependencies:
     whatwg-encoding "^2.0.0"
 
-html-table-parser@^0.0.5:
+html-table-parser@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/html-table-parser/-/html-table-parser-0.0.5.tgz#12e3e4ecf4f839c6412ab89ce2f9b21db6c331af"
   integrity sha512-PSUZ5+d9Dsf1WAjBcYBDqx8EzNRQnepPHzfc1QwWF/EUnD80Ox/bIrv703lsQ2MKTtoH1h+15ySV+fLVNZWAzg==
@@ -2802,7 +2802,7 @@ js-yaml@^4.1.0:
   dependencies:
     argparse "^2.0.1"
 
-jsdom@^20.0.3:
+jsdom@20.0.3:
   version "20.0.3"
   resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-20.0.3.tgz#886a41ba1d4726f67a8858028c99489fed6ad4db"
   integrity sha512-SYhBvTh89tTfCD/CRdSOm13mOBa42iTaTyfyEWBdKcGdPxPtLFBXuHR8XHb33YNYaP+lLbmSvBTsnoesCNJEsQ==
@@ -3980,7 +3980,7 @@ url-parse@^1.5.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
-vite-plugin-pwa@^0.14.0:
+vite-plugin-pwa@0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.14.0.tgz#6782874c397cbea4212681db752b43076b56cc99"
   integrity sha512-3wZx47PLWTckOQhc8Y6YZjAbNZ89Ovh4TdCT97MGhgl7aFd2LUekVnAmIgFwgMqyxzJ93nmkPF/ALpEW/i2qCg==
