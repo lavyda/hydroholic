@@ -3,7 +3,7 @@ import { SvelteKitPWA } from '@vite-pwa/sveltekit'
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [sveltekit(), SvelteKitPWA()],
+	plugins: [sveltekit(), SvelteKitPWA({ registerType: 'autoUpdate' })],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
