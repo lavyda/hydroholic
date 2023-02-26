@@ -62,7 +62,7 @@ function parsePool(featureId: number, html: string): Block[] {
       if (processedCells.includes(cell.elementId)) {
         continue;
       }
-      const name = cell.textContent?.trim().replace('\n', '') ?? null;
+      const name = cell.textContent ? normalizePoolName(cell.textContent) : null;
       const originalState = cell.attributes?.class;
       const state = originalState ? BlockStateMap[originalState] : BlockState.unknown;
       const startIndex = cell.left - ignoredColumnsOffset;
@@ -107,4 +107,16 @@ export async function getBlocks(id: number, date?: string) {
     console.error(e);
     throw e;
   }
+}
+
+/**
+ * Transforms text:
+ * Removes new lines and whitespaces from start and end.
+ * Uses only text after first dash.
+ * Example: `D2 - ŠG \nTrieda SNP` is transformed to `ŠG Trieda SNP`
+ * @param text text to normalize
+ * @returns normalized text
+ */
+function normalizePoolName(text: string): string | null {
+  return /- (.*)/.exec(text.trim().replace('\n', ''))?.[1] ?? null;
 }

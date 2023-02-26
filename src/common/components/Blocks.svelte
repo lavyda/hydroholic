@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { getHours, getMinutes } from 'date-fns';
+	import { createEventDispatcher } from 'svelte';
 	import { type Block, BlockStateColor } from '../services/blocks';
 
 	export let columns: number = 1;
 	export let rows: number = 1;
 	export let blocks: Block[] = [];
+
+	const dispatch = createEventDispatcher();
 
 	function getBlockGridColumn(block: Block): string {
 		return `${block.position} / ${block.position + 1}`;
@@ -25,13 +28,14 @@
 
 <div class="blocks" style="--grid-columns: {columns}; --grid-rows: {rows * 2}">
 	{#each blocks as block}
-		<div
+		<button
 			class="blocks--block"
 			class:blocks--block__diagonal={getBlockBgColor(block) !== BlockStateColor.free}
 			class:blocks--block__fill={getBlockBgColor(block) === BlockStateColor.free}
 			style="--block-color: {getBlockBgColor(block)}; --block-grid-column: {getBlockGridColumn(
 				block
 			)}; --block-grid-row: {getBlockGridRow(block)}"
+			on:click={() => dispatch('details', { block })}
 		/>
 	{/each}
 </div>

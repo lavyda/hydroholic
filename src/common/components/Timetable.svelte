@@ -31,7 +31,7 @@
 			<Grid columns={positions.length} rows={hours.length} />
 		</div>
 		<div class="body--blocks">
-			<Blocks {blocks} columns={positions.length} rows={hours.length} />
+			<Blocks {blocks} columns={positions.length} rows={hours.length} on:details />
 		</div>
 	</div>
 </div>
