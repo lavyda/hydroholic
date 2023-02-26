@@ -53,6 +53,8 @@
 		grid-row: var(--block-grid-row);
 		border-radius: var(--size-2);
 		border: 1px solid var(--block-color);
+		margin: 0;
+		padding: 0;
 	}
 
 	.blocks--block__fill {

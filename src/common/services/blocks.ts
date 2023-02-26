@@ -26,7 +26,7 @@ export const BlockStateColor: Record<BlockState, string> = {
 }
 
 export const BlockStateLabel: Record<BlockState, string> = {
-  [BlockState.unknown]: 'Neznáma',
+  [BlockState.unknown]: 'Neznámy stav',
   [BlockState.free]: 'Voľná',
   [BlockState.closed]: 'Zatvorená',
   [BlockState.occupied1]: 'Obsadená',

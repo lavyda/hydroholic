@@ -64,7 +64,7 @@ function parsePool(featureId: number, html: string): Block[] {
       }
       const name = cell.textContent ? normalizePoolName(cell.textContent) : null;
       const originalState = cell.attributes?.class;
-      const state = originalState ? BlockStateMap[originalState] : BlockState.unknown;
+      const state = originalState ? originalState.includes('Zatvorené') ? BlockState.closed : BlockStateMap[originalState] : BlockState.unknown;
       const startIndex = cell.left - ignoredColumnsOffset;
       const start = formatISO(starts[startIndex]);
       const end = formatISO(addMinutes(starts[startIndex], 30 * Number(cell.attributes?.colspan) ?? 1));
