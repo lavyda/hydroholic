@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { pwaInfo } from 'virtual:pwa-info';
+	import { navigating } from '$app/stores';
 	import '../app.postcss';
 
 	let ReloadPrompt;
@@ -34,7 +35,11 @@
 </svelte:head>
 
 <main>
-	<slot />
+	{#if $navigating}
+		Načítavanie...
+	{:else}
+		<slot />
+	{/if}
 </main>
 
 {#if ReloadPrompt}

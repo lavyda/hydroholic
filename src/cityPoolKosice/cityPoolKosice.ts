@@ -98,7 +98,7 @@ export async function getBlocks(id: number, date?: string) {
     const searchParams = { PoolID: id.toString() };
     const formattedDate = date ? format(new Date(date), 'yyyy-MM-dd-00-00-00') : undefined;
     if (dev) {
-      console.log('getBlocks', searchParams, formattedDate);
+      console.log('DEV mode enabled: using mock data');
       return parsePool(id, getPoolMock);
     }
     const response = await getPool(searchParams, formattedDate);

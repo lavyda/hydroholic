@@ -6,7 +6,7 @@
 	import Timetable from '../../../common/components/Timetable.svelte';
 	import BlockDetailsDialog from '../../../common/components/BlockDetailsDialog.svelte';
 	import { features } from '../../../common/services/features';
-	import type { Block } from 'src/common/services/blocks';
+	import type { Block } from '../../../common/services/blocks';
 
 	export let data: PageData;
 
